@@ -55,6 +55,7 @@ public class ThreeSum {
 		ThreeSum ts = new ThreeSum();
 		List<List<Integer>> threeSum = ts.threeSum(arr);
 		System.out.println(threeSum);
+		sc.close();
 
 	}
 
