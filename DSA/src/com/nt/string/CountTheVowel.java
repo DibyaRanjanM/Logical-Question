@@ -10,7 +10,8 @@ public class CountTheVowel {
 		for (int i = 0; i <= str.length() - 1; i++) {
 			// char ch = str.charAt(i);
 			if (str.charAt(i) == 'A' || str.charAt(i) == 'E' || str.charAt(i) == 'I' || str.charAt(i) == 'O'
-					|| str.charAt(i) == 'U') {
+					|| str.charAt(i) == 'U')
+			{
 				count++;
 			}
 		}
