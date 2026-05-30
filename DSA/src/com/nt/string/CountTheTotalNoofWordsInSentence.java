@@ -12,6 +12,7 @@ public class CountTheTotalNoofWordsInSentence {
 		System.out.println("enter the senetence");
 		String nextLine = sc.nextLine();
 		totalNumberOfWords(nextLine);
+		sc.close();
 
 	}
 
