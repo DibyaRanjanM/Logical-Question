@@ -64,6 +64,10 @@ public class SortedMethod {
 		List<Integer> collect3 = numb.stream().filter(n -> n > 20).sorted(Comparator.reverseOrder()).map(n -> n * 2)
 				.collect(Collectors.toList());
 		collect3.forEach(System.out::println);
+		System.out.println("-----------------");
+		// Sort prices from cheapest to most expensive.
+		List<Integer> prices = Arrays.asList(2500, 500, 1500, 3000, 1000);
+		prices.stream().sorted((p1, p2) -> p1.compareTo(p2)).forEach(System.out::println);
 
 	}
 
