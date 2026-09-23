@@ -49,6 +49,48 @@ public class Comparator1 {
 		System.out.println("++++++++++++++++++++++++++++++");
 		// Sort employees by age in descending order.
 		employees.stream().sorted(Comparator.comparing(Employee::getAge).reversed()).forEach(System.out::println);
+		// Level 2 — Multiple sorting conditions
+		System.out.println("========================++++++++++++++++++++++++++++");
+		// Sort employees by salary, and if salary is the same, sort by name.
+		employees.stream().sorted(Comparator.comparingInt(Employee::getSalary).thenComparing(Employee::getName))
+				.forEach(System.out::println);
+		System.out.println("++++++++++++++++++++==========================");
+		// Sort employees by salary descending, then by name ascending.
+		employees.stream()
+				.sorted(Comparator.comparingInt(Employee::getSalary).reversed().thenComparing(Employee::getName))
+				.forEach(System.out::println);
+		System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+		// Sort employees by name length.
+		employees.stream()
+				.sorted(Comparator.comparingInt((Employee e) -> e.getName().length()).thenComparing(Employee::getName))
+				.forEach(e -> System.out.println(e.getName() + "..." + e.getName().length()));
+		System.out.println("--------------------==============================");
+		// Sort employees by name length, then alphabetically by name.
+		employees.stream()
+				.sorted(Comparator.comparingInt((Employee e) -> e.getName().length()).thenComparing(Employee::getName))
+				.forEach(System.out::println);
+		System.out.println("==========================================");
+		// Sort employees by salary descending. If salary is the same, sort by age
+		// ascending. If both salary and age are the same, sort by name alphabetically
+		employees
+				.stream().sorted(Comparator.comparingInt(Employee::getSalary).reversed()
+						.thenComparingInt(Employee::getAge).thenComparing(Employee::getName))
+				.forEach(System.out::println);
+		;
+		System.out.println("------------------------------");
+
+		// Find the highest-paid employee using Stream API
+		employees.stream().sorted(Comparator.comparing(Employee::getSalary).reversed()).limit(1)
+				.forEach(System.out::println);
+		employees.stream().max(Comparator.comparingInt(Employee::getSalary)).ifPresent(System.out::println);
+		System.out.println("---------------------");
+		// Find the second-highest-paid employee.
+
+		employees.stream().filter(e -> e.getSalary() == employees.stream().map(Employee::getSalary)
+				.sorted(Comparator.reverseOrder()).skip(1).findFirst().orElse(0)).forEach(System.out::println);
+		// Find the employee(s) having the second-highest salary.
+		employees.stream().map(Employee::getSalary).distinct().sorted(Comparator.reverseOrder()).skip(1).findFirst()
+				.ifPresent(System.out::println);
 
 	}
 
