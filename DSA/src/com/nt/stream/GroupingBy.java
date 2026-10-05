@@ -45,7 +45,7 @@ public class GroupingBy {
 		Map<String, Long> collect7 = Arrays.stream(str.split(""))
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 		System.out.println(collect7);
-
+ 
 	}
 
 }
