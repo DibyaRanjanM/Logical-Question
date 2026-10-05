@@ -45,7 +45,13 @@ public class GroupingBy {
 		Map<String, Long> collect7 = Arrays.stream(str.split(""))
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 		System.out.println(collect7);
- 
+
+		// Count names based on their first character
+		List<String> name = Arrays.asList("Ram", "Raj", "Ravi", "John", "James", "Sam", "Steve", "Suresh");
+		Map<Character, Long> collect8 = name.stream()
+				.collect(Collectors.groupingBy(n -> n.charAt(0), Collectors.counting()));
+		System.out.println(collect8);
+
 	}
 
 }
