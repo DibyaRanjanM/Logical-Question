@@ -3,6 +3,7 @@ package com.nt.stream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class GroupingBy {
@@ -28,6 +29,23 @@ public class GroupingBy {
 		Map<String, List<Employeee>> collect4 = employees.stream()
 				.collect(Collectors.groupingBy(Employeee::getDepartment));
 		System.out.println(collect4);
+
+		// Count each Number
+		List<Integer> number = Arrays.asList(1, 2, 2, 3, 3, 3, 4, 4, 4, 4);
+		Map<Integer, Long> collect5 = number.stream()
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		System.out.println(collect5);
+
+		// Count each word
+		List<String> word = Arrays.asList("java", "python", "java", "c", "python", "java");
+		Map<String, Long> collect6 = word.stream().collect(Collectors.groupingBy(w -> w, Collectors.counting()));
+		System.out.println(collect6);
+		// Count each character
+		String str = "hello";
+		Map<String, Long> collect7 = Arrays.stream(str.split(""))
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		System.out.println(collect7);
+
 	}
 
 }
