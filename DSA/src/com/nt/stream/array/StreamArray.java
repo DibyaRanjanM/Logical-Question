@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -55,6 +56,15 @@ public class StreamArray {
 		List<String> words = Arrays.asList("apple", "banana", "cherry", "date", "elderberry");
 		String collect2 = words.stream().filter(x -> x.length() % 2 == 0).limit(2).collect(Collectors.joining());
 		System.out.println(collect2);
+		/*
+		 * 
+		 * Given a list of transactions, find the sum of transaction amounts for each
+		 * day and sort by date.
+		 */
+		List<Transaction> transactions = Arrays.asList(new Transaction("2022-01-01", 100),
+				new Transaction("2022-01-01", 200), new Transaction("2022-01-02", 300));
+		transactions.stream().collect(Collectors.groupingBy(Transaction::getDate, TreeMap::new,
+				Collectors.summingLong(Transaction::getAmount)));
 
 	}
 
