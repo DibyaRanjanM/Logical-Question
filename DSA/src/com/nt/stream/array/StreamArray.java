@@ -1,8 +1,8 @@
 package com.nt.stream.array;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -33,6 +33,41 @@ public class StreamArray {
 				.sorted(Comparator.comparing(Person::getAge).thenComparing(Person::getName))
 				.forEach(System.out::println);
 
+		// Write a program to find the length of the longest name in a list of strings.
+		List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David", "Eva");
+		int max = names.stream().mapToInt(String::length).max().orElse(0);
+		System.out.println(max);
+		// Check if a list of integers contains any prime numbers.
+		List<Integer> numbers = Arrays.asList(4, 6, 8, 11, 12, 13, 14, 15);
+		boolean match = numbers.stream().anyMatch(StreamArray::isPrime);
+		System.out.println(match);
+
+		/*
+		 * 
+		 * Count the total number of distinct words (case-insensitive) across multiple
+		 * sentences.
+		 */
+		List<String> sentences = Arrays.asList("Java Stream API provides a fluent interface",
+				"It supports functional-style operations on streams", "In this exercise, you need to count words");
+		long count = sentences.stream().map(x -> x.toLowerCase().split(" ")).flatMap(Arrays::stream).distinct().count();
+		System.out.println(count);
+		// Find and concatenate the first two words that have even lengths.
+		List<String> words = Arrays.asList("apple", "banana", "cherry", "date", "elderberry");
+		String collect2 = words.stream().filter(x -> x.length() % 2 == 0).limit(2).collect(Collectors.joining());
+		System.out.println(collect2);
+
+	}
+
+	private static boolean isPrime(int n) {
+		if (n < 2) {
+			return false;
+		}
+		for (int i = 2; i <= Math.sqrt(n); i++) {
+			if (n % i == 1) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 }
