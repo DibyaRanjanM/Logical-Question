@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class StreamArray {
@@ -65,7 +66,30 @@ public class StreamArray {
 				new Transaction("2022-01-01", 200), new Transaction("2022-01-02", 300));
 		transactions.stream().collect(Collectors.groupingBy(Transaction::getDate, TreeMap::new,
 				Collectors.summingLong(Transaction::getAmount)));
+		/*
+		 * 
+		 * Given two arrays of integers, merge them, sort them, and then filter out any
+		 * numbers greater than a specified threshold.
+		 */
+		int[] array1 = { 1, 5, 3, 9, 7 };
+		int[] array2 = { 2, 4, 6, 8, 10 };
+		int threshold = 7;
+		IntStream.concat(Arrays.stream(array1), Arrays.stream(array2)).boxed().sorted().filter(x -> x <= threshold)
+				.forEach(System.out::println);
 
+		/*
+		 * 
+		 * Transform a list of employee records into a map of department to average
+		 * salary.
+		 */
+
+		List<Employee> employees = Arrays.asList(new Employee("IT", 75000), new Employee("IT", 85000),
+				new Employee("HR", 50000), new Employee("HR", 60000), new Employee("Finance", 90000),
+				new Employee("Finance", 95000), new Employee("Sales", 70000), new Employee("Sales", 65000));
+		Map<String, Double> collect3 = employees.stream().collect(
+				Collectors.groupingBy(Employee::getDepartment, Collectors.averagingDouble(Employee::getSalary)));
+
+System.out.println(collect3);
 	}
 
 	private static boolean isPrime(int n) {
