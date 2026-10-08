@@ -89,7 +89,15 @@ public class StreamArray {
 		Map<String, Double> collect3 = employees.stream().collect(
 				Collectors.groupingBy(Employee::getDepartment, Collectors.averagingDouble(Employee::getSalary)));
 
-System.out.println(collect3);
+		System.out.println(collect3);
+
+		/*
+		 * 
+		 * Partition a list of numbers into two groups: prime and non-prime numbers
+		 */
+		List<Integer> number = Arrays.asList(2, 3, 4, 5, 6, 7, 8, 9, 10);
+		Map<Boolean, List<Integer>> collect4 = number.stream().collect(Collectors.partitioningBy(n -> isPrime(n)));
+		System.out.println(collect4);
 	}
 
 	private static boolean isPrime(int n) {
