@@ -118,7 +118,18 @@ public class StreamArray {
 		List<Integer> list4 = Arrays.asList(3, 4, 5, 6, 7);
 		List<Integer> list = list3.stream().filter(list4::contains).toList();
 		System.out.println(list);
+		// How to Convert a List of Objects into a Sorted Map While Handling Duplicate
+		// Keys in Java?
+		List<Employe> employe = Arrays.asList(new Employe(101, "Alice"), new Employe(102, "Bob"),
+				new Employe(101, "Charlie"), new Employe(103, "David"), new Employe(102, "Eve"));
+		// Convert to TreeMap with List as value type
 
+		// Key extractor
+		// Use TreeMap to maintain sorted order
+		// Collect values into a list
+		TreeMap<Integer, List<Employe>> collect6 = employe.stream()
+				.collect(Collectors.groupingBy(e -> e.id, TreeMap::new, Collectors.toList()));
+		System.out.println(collect6);
 	}
 
 	private static boolean isPrime(int n) {
