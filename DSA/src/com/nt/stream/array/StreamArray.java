@@ -98,6 +98,27 @@ public class StreamArray {
 		List<Integer> number = Arrays.asList(2, 3, 4, 5, 6, 7, 8, 9, 10);
 		Map<Boolean, List<Integer>> collect4 = number.stream().collect(Collectors.partitioningBy(n -> isPrime(n)));
 		System.out.println(collect4);
+
+		/*
+		 * 
+		 * Generate Fibonacci sequence up to n terms using streams.
+		 */
+		int n = 10;
+		Stream.iterate(new int[] { 0, 1 }, a -> new int[] { a[1], a[0] + a[1] }).limit(n).map(a -> a[0])
+				.forEach(System.out::println);
+
+		// Group strings by their first character and count occurrences.
+		List<String> word = Arrays.asList("apple", "banana", "bear", "cat", "apple");
+		Map<Character, Long> collect5 = word.stream()
+				.collect(Collectors.groupingBy(str1 -> str1.charAt(0), Collectors.counting()));
+		System.out.println(collect5);
+
+		// Find the intersection of two lists using Java streams:
+		List<Integer> list3 = Arrays.asList(1, 2, 3, 4, 5);
+		List<Integer> list4 = Arrays.asList(3, 4, 5, 6, 7);
+		List<Integer> list = list3.stream().filter(list4::contains).toList();
+		System.out.println(list);
+
 	}
 
 	private static boolean isPrime(int n) {
