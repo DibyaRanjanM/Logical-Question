@@ -76,6 +76,17 @@ public class Practice {
 		int[] arr4 = { 10, 15, 8, 49, 25, 98, 98, 32, 15 };
 		long count2 = Arrays.stream(arr4).boxed().count();
 		System.out.println(count2);
+		// Given a list of integers, find the maximum value element present in it using
+		// Stream functions?
+		List<Integer> myList6 = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
+		Integer integer = myList6.stream().max(Integer::compareTo).get();
+		System.out.println(integer);
+		/* or we can try using below way */
+		/* When numbers are given as Array int[] arr = {10,15,8,49,25,98,98,32,15}; */
+		int[] arr5= {10,15,8,49,25,98,98,32,15};
+		int asInt = Arrays.stream(arr5).max().getAsInt();
+		System.out.println(asInt);
+		
 
 	}
 
