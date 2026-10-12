@@ -66,6 +66,17 @@ public class Practice {
 		int[] myList4 = { 10, 15, 8, 49, 25, 98, 98, 32, 15 };
 		Arrays.stream(myList4).boxed().findFirst().ifPresent(System.out::println);
 
+		// Given a list of integers, find the total number of elements present in the
+		// list using Stream functions?
+		List<Integer> myList5 = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
+		long count = myList5.stream().count();
+		System.out.println(count);
+		/* or can also try below line code */
+		/* When numbers are given as Array int[] arr = {10,15,8,49,25,98,98,32,15}; */
+		int[] arr4 = { 10, 15, 8, 49, 25, 98, 98, 32, 15 };
+		long count2 = Arrays.stream(arr4).boxed().count();
+		System.out.println(count2);
+
 	}
 
 }
