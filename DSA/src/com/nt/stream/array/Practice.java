@@ -57,6 +57,15 @@ public class Practice {
 		List<Integer> collect3 = set.stream().collect(Collectors.toList());
 		collect3.forEach(System.out::println);
 
+//Given the list of integers, find the first element of the list using Stream functions?
+		List<Integer> myList3 = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
+		myList3.stream().findFirst().ifPresent(System.out::println);
+
+		/* or can also try below single line code */
+		/* When numbers are given as Array */
+		int[] myList4 = { 10, 15, 8, 49, 25, 98, 98, 32, 15 };
+		Arrays.stream(myList4).boxed().findFirst().ifPresent(System.out::println);
+
 	}
 
 }
