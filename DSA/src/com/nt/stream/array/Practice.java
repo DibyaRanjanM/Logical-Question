@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Practice {
 	public static void main(String[] args) {
@@ -29,6 +30,19 @@ public class Practice {
 		// Stream functions?
 		List<Integer> myList = Arrays.asList(10, 15, 8, 49, 25, 98, 32);
 		myList.stream().map(s -> s + "").filter(s -> s.startsWith("1")).forEach(System.out::println);
+//When numbers are given as Array int[] arr = {10,15,8,49,25,98,32}; 
+		// and return type is list */
+		int[] arr2 = { 10, 15, 8, 49, 25, 98, 32 };
+		List<String> collect2 = Arrays.stream(arr2).boxed().map(n -> n + "").filter(s -> s.startsWith("1"))
+				.collect(Collectors.toList());
+		System.out.println(collect2);
+		/*
+		 * When numbers are given as Array int[] arr = {10,15,8,49,25,98,32}; and return
+		 * type is int[]
+		 */
+		int[] arr3 = { 10, 15, 8, 49, 25, 98, 32 };
+		int[] array = Arrays.stream(arr3).filter(n -> String.valueOf(n).startsWith("1")).toArray();
+		System.out.println(Arrays.toString(array));
 
 	}
 
