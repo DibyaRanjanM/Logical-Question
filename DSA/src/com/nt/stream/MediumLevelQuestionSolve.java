@@ -42,6 +42,11 @@ public class MediumLevelQuestionSolve {
 		// Stream API.
 		List<String> strings1 = Arrays.asList("banana", "orange", "apple", "grape");
 		strings1.stream().sorted().forEach(System.out::println);
+		// 8. Given a list of strings, write a program to concatenate all the strings
+		// using Java Stream API.
+		List<String> strings2 = Arrays.asList("apple", "banana", "orange", "grape");
+		String collect = strings2.stream().collect(Collectors.joining());
+		System.out.println(collect);
 
 	}
 
