@@ -83,11 +83,15 @@ public class Practice {
 		System.out.println(integer);
 		/* or we can try using below way */
 		/* When numbers are given as Array int[] arr = {10,15,8,49,25,98,98,32,15}; */
-		int[] arr5= {10,15,8,49,25,98,98,32,15};
+		int[] arr5 = { 10, 15, 8, 49, 25, 98, 98, 32, 15 };
 		int asInt = Arrays.stream(arr5).max().getAsInt();
 		System.out.println(asInt);
-		
-
+		// 7. Given a String, find the first non-repeated character in it using Stream
+		// functions?
+		String input = "Java articles are Awesome";
+		Character orElse = input.chars().mapToObj(c -> (char) c)
+				.filter(ch -> input.indexOf(ch) == input.lastIndexOf(ch)).findFirst().orElse(null);
+		System.out.println(orElse);
 	}
 
 }
