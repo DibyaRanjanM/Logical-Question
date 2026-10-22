@@ -2,6 +2,7 @@ package com.nt.stream;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MediumLevelQuestionSolve {
 	public static void main(String[] args) {
@@ -26,6 +27,10 @@ public class MediumLevelQuestionSolve {
 		char searchChar = 'a';
 		long count = strings.stream().filter(s -> s.contains(String.valueOf(searchChar))).count();
 		System.out.println(count);
+		// 5. Write a program to convert a list of strings to uppercase using Java
+		// Stream API
+		List<String> string = Arrays.asList("apple", "banana", "orange", "grape");
+		string.stream().map(n -> n.toUpperCase()).forEach(System.out::println);
 
 	}
 
