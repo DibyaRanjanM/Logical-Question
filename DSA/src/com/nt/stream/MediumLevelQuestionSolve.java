@@ -1,7 +1,6 @@
 package com.nt.stream;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 public class MediumLevelQuestionSolve {
@@ -17,7 +16,10 @@ public class MediumLevelQuestionSolve {
 		List<Integer> number = Arrays.asList(2, 4, 8, 6, 10);
 		int orElseThrow = number.stream().mapToInt(n -> n).max().orElseThrow();
 		System.out.println(orElseThrow);
-		
+		// 3. Write a program to filter out all the even numbers from a list using Java
+		// Stream API
+		List<Integer> numbers1 = Arrays.asList(1, 2, 3, 4, 5);
+		numbers1.stream().filter(n -> n % 2 == 0).forEach(System.out::println);
 
 	}
 
