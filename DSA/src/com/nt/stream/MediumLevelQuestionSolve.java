@@ -20,6 +20,12 @@ public class MediumLevelQuestionSolve {
 		// Stream API
 		List<Integer> numbers1 = Arrays.asList(1, 2, 3, 4, 5);
 		numbers1.stream().filter(n -> n % 2 == 0).forEach(System.out::println);
+		// 4. Given a list of strings, write a program to count the number of strings
+		// containing a specific character ‘a’ using Java Stream API.
+		List<String> strings = Arrays.asList("apple", "banana", "orange", "grape");
+		char searchChar = 'a';
+		long count = strings.stream().filter(s -> s.contains(String.valueOf(searchChar))).count();
+		System.out.println(count);
 
 	}
 
