@@ -1,6 +1,7 @@
 package com.nt.stream;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.OptionalDouble;
 import java.util.stream.Collectors;
@@ -37,6 +38,10 @@ public class MediumLevelQuestionSolve {
 		List<Integer> numbers2 = Arrays.asList(1, 2, 3, 4, 5);
 		OptionalDouble average = numbers2.stream().mapToDouble(n -> n).average();
 		System.out.println(average);
+		// 7. Write a program to sort a list of strings in alphabetical order using Java
+		// Stream API.
+		List<String> strings1 = Arrays.asList("banana", "orange", "apple", "grape");
+		strings1.stream().sorted().forEach(System.out::println);
 
 	}
 
