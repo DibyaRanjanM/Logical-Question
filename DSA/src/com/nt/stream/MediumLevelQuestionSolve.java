@@ -3,6 +3,7 @@ package com.nt.stream;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 
@@ -47,6 +48,17 @@ public class MediumLevelQuestionSolve {
 		List<String> strings2 = Arrays.asList("apple", "banana", "orange", "grape");
 		String collect = strings2.stream().collect(Collectors.joining());
 		System.out.println(collect);
+		// 9. Write a program to find the longest string in a list of strings using Java
+		// Stream API.
+		List<String> strings3 = Arrays.asList("apple", "banana", "orange", "grape");
+		Optional<String> max = strings3.stream().max(Comparator.comparing(String::length));
+		System.out.println(max);
+
+		// 10. Given a list of integers, write a program to find and print the second
+		// largest number using Java Stream API.
+		List<Integer> numbers3 = Arrays.asList(4, 2, 8, 6, 10);
+		Optional<Integer> first = numbers3.stream().distinct().sorted(Comparator.reverseOrder()).skip(1).findFirst();
+		System.out.println(first.get());
 
 	}
 
