@@ -2,6 +2,7 @@ package com.nt.stream;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 
 public class MediumLevelQuestionSolve {
@@ -31,6 +32,11 @@ public class MediumLevelQuestionSolve {
 		// Stream API
 		List<String> string = Arrays.asList("apple", "banana", "orange", "grape");
 		string.stream().map(n -> n.toUpperCase()).forEach(System.out::println);
+		// 6. Given a list of integers, write a program to calculate the average of all
+		// the numbers using Java Stream API.
+		List<Integer> numbers2 = Arrays.asList(1, 2, 3, 4, 5);
+		OptionalDouble average = numbers2.stream().mapToDouble(n -> n).average();
+		System.out.println(average);
 
 	}
 
