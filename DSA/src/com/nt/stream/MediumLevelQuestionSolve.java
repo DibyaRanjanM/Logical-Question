@@ -65,6 +65,12 @@ public class MediumLevelQuestionSolve {
 		List<Integer> numbers4 = Arrays.asList(1, 2, 3, 4, 2, 5, 6, 3, 7, 8, 1);
 		numbers4.stream().distinct().forEach(System.out::println);
 
+		// 12. Given a list of strings, write a program to find and print the shortest
+		// string using Java Stream API.
+		List<String> strings4 = Arrays.asList("apple", "banana", "kiwi", "orange", "pear");
+		String orElseThrow2 = strings4.stream().min(Comparator.comparing(String::length)).orElseThrow();
+		System.out.println(orElseThrow2);
+
 	}
 
 }
