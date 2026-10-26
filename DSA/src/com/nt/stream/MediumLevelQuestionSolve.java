@@ -60,6 +60,11 @@ public class MediumLevelQuestionSolve {
 		Optional<Integer> first = numbers3.stream().distinct().sorted(Comparator.reverseOrder()).skip(1).findFirst();
 		System.out.println(first.get());
 
+		// 11. Write a program to remove all the duplicate elements from a list using
+		// Java Stream API.
+		List<Integer> numbers4 = Arrays.asList(1, 2, 3, 4, 2, 5, 6, 3, 7, 8, 1);
+		numbers4.stream().distinct().forEach(System.out::println);
+
 	}
 
 }
