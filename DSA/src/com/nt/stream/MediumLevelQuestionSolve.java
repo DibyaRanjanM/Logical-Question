@@ -70,6 +70,11 @@ public class MediumLevelQuestionSolve {
 		List<String> strings4 = Arrays.asList("apple", "banana", "kiwi", "orange", "pear");
 		String orElseThrow2 = strings4.stream().min(Comparator.comparing(String::length)).orElseThrow();
 		System.out.println(orElseThrow2);
+		// Write a program to convert a list of integers to a list of their squares
+		// using Java Stream API.
+		List<Integer> numbers5 = Arrays.asList(1, 2, 3, 4, 5);
+		List<Integer> collect2 = numbers5.stream().map(n -> n * n).collect(Collectors.toList());
+		System.out.println(collect2);
 
 	}
 
