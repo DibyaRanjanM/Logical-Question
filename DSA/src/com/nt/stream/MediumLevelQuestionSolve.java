@@ -95,8 +95,11 @@ public class MediumLevelQuestionSolve {
 		System.out.println(collect4);
 		// 17. Write a program to check if a list of strings contains a specific string
 		// using Java Stream API.
-		 List<String> strings6 = Arrays.asList("apple", "banana", "kiwi", "orange", "pear");
-		 
+		List<String> strings6 = Arrays.asList("apple", "banana", "kiwi", "orange", "pear");
+		String target = "banana";
+		boolean anyMatch = strings6.stream().anyMatch(e -> e.equals(target));
+		System.out.println(anyMatch);
+
 	}
 
 	private static boolean isPrime(int n) {
