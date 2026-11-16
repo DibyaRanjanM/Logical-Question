@@ -75,6 +75,40 @@ public class MediumLevelQuestionSolve {
 		List<Integer> numbers5 = Arrays.asList(1, 2, 3, 4, 5);
 		List<Integer> collect2 = numbers5.stream().map(n -> n * n).collect(Collectors.toList());
 		System.out.println(collect2);
+		// 14. Given a list of strings, write a program to find and print the strings
+		// starting with a specific prefix ‘a’ using Java Stream API.
+		List<String> strings5 = Arrays.asList("apple", "banana", "kiwi", "orange", "pear");
+		char prefix = 'a';
+		List<String> collect3 = strings5.stream().filter(s -> s.startsWith(String.valueOf(prefix)))
+				.collect(Collectors.toList());
+		System.out.println(collect3);
+		// 15. Write a program to find the product of all elements in a list of integers
+		// using Java Stream API.
+		List<Integer> numbers6 = Arrays.asList(1, 2, 3, 4, 5);
+		Integer reduce = numbers6.stream().reduce(1, (a, b) -> a * b);
+		System.out.println(reduce);
+		// Given a list of integers, write a program to find and print the prime numbers
+		// using Java Stream API.
+		List<Integer> numberS7 = Arrays.asList(2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
+		List<Integer> collect4 = numberS7.stream().filter(MediumLevelQuestionSolve::isPrime)
+				.collect(Collectors.toList());
+		System.out.println(collect4);
+		// 17. Write a program to check if a list of strings contains a specific string
+		// using Java Stream API.
+		 List<String> strings6 = Arrays.asList("apple", "banana", "kiwi", "orange", "pear");
+		 
+	}
+
+	private static boolean isPrime(int n) {
+		if (n <= 1) {
+			return false;
+		}
+		for (int i = 2; i <= Math.sqrt(n); i++) {
+			if (n % i == 0) {
+				return false;
+			}
+		}
+		return true;
 
 	}
 
