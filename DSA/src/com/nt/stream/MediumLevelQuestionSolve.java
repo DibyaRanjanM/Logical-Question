@@ -99,6 +99,12 @@ public class MediumLevelQuestionSolve {
 		String target = "banana";
 		boolean anyMatch = strings6.stream().anyMatch(e -> e.equals(target));
 		System.out.println(anyMatch);
+		// 18. Given a list of strings, write a program to find and print the strings
+		// with length greater than a specified value 5 using Java Stream API.
+		List<String> strings7 = Arrays.asList("apple", "banana", "kiwi", "orange", "pear");
+		int minLength = 5;
+		List<String> collect5 = strings7.stream().filter(e -> e.length() > minLength).collect(Collectors.toList());
+		System.out.println(collect5);
 
 	}
 
